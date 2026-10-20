@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@import "./light-theme.css";
+@import "./dark-theme.css";
+@import "./theme-tokens.css";
+
+@custom-variant dark (&:is(.dark *));
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; font-family: var(--font-sans); }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-serif); }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.nav-link { display: flex; align-items: center; gap: 10px; white-space: nowrap; border-radius: 8px; padding: 10px 12px; color: var(--muted-foreground); text-decoration: none; }
+.nav-link:hover, .nav-link-active { color: var(--accent-foreground); background: var(--accent); }
