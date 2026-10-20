@@ -29,29 +29,48 @@ export function AppSidebar() {
         aria-label="Main navigation"
         className="flex min-h-0 flex-1 flex-col gap-1 overflow-x-hidden overflow-y-auto"
       >
+        {!collapsed && (
+          <p className="mb-2 px-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/65">
+            Workspace
+          </p>
+        )}
         {NAV_ITEMS.map((item) => (
           <SidebarNavItem key={item.to} collapsed={collapsed} {...item} />
         ))}
       </nav>
-      <Button
-        type="button"
-        variant="ghost"
-        aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-        aria-expanded={!collapsed}
-        className="mt-4 hidden h-10 w-full shrink-0 justify-start gap-0 px-2.5 text-foreground/55 md:inline-flex"
-        onClick={() => setCollapsed((value) => !value)}
-      >
-        <span className="flex size-8 shrink-0 items-center justify-center">
-          <PanelLeftClose
-            aria-hidden="true"
-            className={cn(
-              "size-[18px] transition-transform",
-              SIDEBAR_MOTION,
-              collapsed && "rotate-180",
-            )}
-          />
-        </span>
-      </Button>
+      {/* Sidebar controls */}
+      <div className="mt-4 shrink-0 border-t border-sidebar-border/70 pt-3">
+        <Button
+          type="button"
+          variant="ghost"
+          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          aria-expanded={!collapsed}
+          onClick={() => setCollapsed((value) => !value)}
+          className={cn(
+            "h-10 w-full rounded-lg text-muted-foreground",
+            "transition-colors duration-200",
+            "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+            collapsed ? "justify-center px-0" : "justify-start gap-3 px-3",
+          )}
+        >
+          <span className="flex size-5 shrink-0 items-center justify-center">
+            <PanelLeftClose
+              aria-hidden="true"
+              className={cn(
+                "size-[18px]",
+                "transition-transform duration-200 ease-out",
+                collapsed && "rotate-180",
+              )}
+            />
+          </span>
+
+          {!collapsed && (
+            <span className="truncate text-sm font-medium">
+              Collapse sidebar
+            </span>
+          )}
+        </Button>
+      </div>
     </aside>
   );
 }
