@@ -1,7 +1,7 @@
 .dark {
   --background: oklch(0 0 0);
   --foreground: oklch(0.9328 0.0025 228.7857);
-  --card: oklch(0.2097 0.0080 274.5332);
+  --card: oklch(17.304% 0.00002 271.152);
   --card-foreground: oklch(0.8853 0 0);
   --popover: oklch(0 0 0);
   --popover-foreground: oklch(0.9328 0.0025 228.7857);
@@ -23,13 +23,13 @@
   --chart-3: oklch(0.8214 0.1600 82.5337);
   --chart-4: oklch(0.7064 0.1822 151.7125);
   --chart-5: oklch(0.5919 0.2186 10.5826);
-  --sidebar: oklch(0.2097 0.0080 274.5332);
+  --sidebar: oklch(17.304% 0.00002 271.152);
   --sidebar-foreground: oklch(0.8853 0 0);
   --sidebar-primary: oklch(0.6818 0.1584 243.3540);
   --sidebar-primary-foreground: oklch(1.0000 0 0);
   --sidebar-accent: oklch(0.1928 0.0331 242.5459);
   --sidebar-accent-foreground: oklch(0.6692 0.1607 245.0110);
-  --sidebar-border: oklch(0.3795 0.0220 240.5943);
+  --sidebar-border: oklch(0.2674 0.0047 248.0045);
   --sidebar-ring: oklch(0.6818 0.1584 243.3540);
   --font-sans: Merriweather, ui-serif, Georgia, serif;
   --font-serif: Cinzel, ui-serif, Georgia, serif;

@@ -1,32 +1,30 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { AppLayout } from "./components/AppLayout";
-import { PlaceholderPage } from "./components/PlaceholderPage";
+import { AppLayout } from "@/components/layout/AppLayout";
+import { DashboardPage } from "@/pages/DashboardPage";
+import { MeetingsPage } from "@/pages/MeetingsPage";
+import { NotFoundPage } from "@/pages/NotFoundPage";
+import { ProjectTimelinePage } from "@/pages/projects/ProjectTimelinePage";
+import { ProjectsPage } from "@/pages/projects/ProjectsPage";
+import { ProjectWorkspacePage } from "@/pages/projects/ProjectWorkspacePage";
+import { SettingsPage } from "@/pages/SettingsPage";
+import { TeamPage } from "@/pages/TeamPage";
 
 export const router = createBrowserRouter([
   {
     element: <AppLayout />,
     children: [
       { path: "/", element: <Navigate to="/dashboard" replace /> },
-      {
-        path: "/dashboard",
-        element: <PlaceholderPage title="Overview Dashboard" />,
-      },
-      { path: "/projects", element: <PlaceholderPage title="Projects" /> },
-      {
-        path: "/projects/:projectId",
-        element: <PlaceholderPage title="Project Workspace" />,
-      },
+      { path: "/dashboard", element: <DashboardPage /> },
+      { path: "/projects", element: <ProjectsPage /> },
+      { path: "/projects/:projectId", element: <ProjectWorkspacePage /> },
       {
         path: "/projects/:projectId/timeline",
-        element: <PlaceholderPage title="Project Timeline" />,
+        element: <ProjectTimelinePage />,
       },
-      { path: "/team", element: <PlaceholderPage title="Team Management" /> },
-      { path: "/meetings", element: <PlaceholderPage title="Meetings" /> },
-      {
-        path: "/settings",
-        element: <PlaceholderPage title="Settings & Profile" />,
-      },
-      { path: "*", element: <PlaceholderPage title="Page not found" /> },
+      { path: "/team", element: <TeamPage /> },
+      { path: "/meetings", element: <MeetingsPage /> },
+      { path: "/settings", element: <SettingsPage /> },
+      { path: "*", element: <NotFoundPage /> },
     ],
   },
 ]);

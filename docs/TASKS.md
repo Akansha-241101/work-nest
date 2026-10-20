@@ -12,7 +12,7 @@ Status: all work below is **Not started**. This document tracks implementation a
 ## V1 screens
 
 - [ ] Build Overview Dashboard with project, task, and meeting summaries.
-- [ ] Build the Projects area with project list, search, status filtering, and project creation.
+- [x] Build the Projects area with project list, search, status filtering, and list/board views.
 - [ ] Add each project's workspace, with its Kanban board and task create/edit/status flows.
 - [ ] Add keyboard-accessible drag and drop plus an alternate status control.
 - [ ] Build Project Timeline with task dates and milestones.

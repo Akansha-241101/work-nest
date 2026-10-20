@@ -1,10 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { FoundationPage } from './components/FoundationPage'
-import './styles/globals.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { TooltipProvider } from "@/components/ui/Tooltip";
+import { router } from "./router";
+import "./styles/globals.css";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <FoundationPage />
+    <TooltipProvider delayDuration={200} skipDelayDuration={0}>
+      <RouterProvider router={router} />
+    </TooltipProvider>
   </React.StrictMode>,
-)
+);

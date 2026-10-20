@@ -8,17 +8,17 @@ The frontend scaffold is implemented with React, Vite, TypeScript, Tailwind CSS,
 
 ```text
 src/
-  app/              App entry, router, providers
-  components/       Shared layout and UI components
-  features/
-    dashboard/      Dashboard sections and charts
-    projects/       Project list, workspace, tasks, timeline
-    team/           Team directory and membership flows
-    meetings/       Calendar, meeting details, drawing surface
-    settings/       Profile and preferences
+  pages/            Route-level screens (dashboard, projects, team, …)
+  components/
+    layout/         App shell (sidebar, header, AppLayout)
+    ui/             Shared shadcn/ui primitives
+    shared/         Cross-feature helpers (PageIntro, placeholders)
+    foundation/     Design-token preview screens
+    projects/       Projects feature UI (header, filters, cards, board)
+  data/             Sample / mock collections
+  types/            Shared domain types
   stores/           Zustand client state
   services/         Data-provider boundary (mock initially)
-  types/            Shared domain types
   lib/              Date, formatting, and UI utilities
   styles/           Tailwind entry and global tokens
 ```

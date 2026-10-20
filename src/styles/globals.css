@@ -12,10 +12,33 @@
     @apply bg-background text-foreground;
   }
 }
-* { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; min-height: 100vh; font-family: var(--font-sans); }
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-serif); }
-button, a { -webkit-tap-highlight-color: transparent; }
-:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
-.nav-link { display: flex; align-items: center; gap: 10px; white-space: nowrap; border-radius: 8px; padding: 10px 12px; color: var(--muted-foreground); text-decoration: none; }
-.nav-link:hover, .nav-link-active { color: var(--accent-foreground); background: var(--accent); }
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow: hidden;
+  font-family: var(--font-sans);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
