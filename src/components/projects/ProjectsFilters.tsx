@@ -42,14 +42,19 @@ export function ProjectsFilters({
   useGSAP(
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      gsap.from(".filters-anim-item", {
-        y: 18,
-        opacity: 0,
-        duration: 0.85,
-        ease: "power3.out",
-        stagger: 0.1,
-        delay: 0.28,
-      });
+      gsap.fromTo(
+        ".filters-anim-item",
+        { y: 18, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.85,
+          ease: "power3.out",
+          stagger: 0.1,
+          delay: 0.28,
+          clearProps: "transform",
+        },
+      );
     },
     { scope: rootRef as RefObject<HTMLElement | null> },
   );

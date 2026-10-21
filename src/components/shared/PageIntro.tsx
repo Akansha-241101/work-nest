@@ -29,14 +29,19 @@ export function PageIntro({
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (reduce) return;
 
-      gsap.from(".page-intro-item", {
-        y: 25,
-        opacity: 0,
-        duration: 1.05,
-        ease: "power3.out",
-        stagger: 0.14,
-        delay: 0.08,
-      });
+      gsap.fromTo(
+        ".page-intro-item",
+        { y: 25, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.05,
+          ease: "power3.out",
+          stagger: 0.14,
+          delay: 0.08,
+          clearProps: "transform",
+        },
+      );
     },
     { scope: rootRef as RefObject<HTMLElement | null> },
   );

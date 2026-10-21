@@ -17,14 +17,20 @@ export function ProjectsListing({ projects }: ProjectsListingProps) {
   useGSAP(
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      gsap.from(".project-card-item", {
-        y: 18,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power2.out",
-        stagger: 0.06,
-        delay: 0.2,
-      });
+      // fromTo (not from): interrupted tweens must not bake partial opacity as the end state
+      gsap.fromTo(
+        ".project-card-item",
+        { y: 18, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+          stagger: 0.06,
+          delay: 0.2,
+          clearProps: "transform",
+        },
+      );
     },
     { scope: rootRef as RefObject<HTMLElement | null>, dependencies: [projects] },
   );
