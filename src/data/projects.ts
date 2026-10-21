@@ -1,4 +1,5 @@
 import type { Project } from "@/types/project";
+import { PROJECTS_MORE } from "./projectsMore";
 
 export const PROJECTS: Project[] = [
   {
@@ -101,3 +102,5 @@ export const PROJECTS: Project[] = [
     dueLabel: "Due 22 Nov",
   },
 ];
+
+export const ALL_PROJECTS = [...PROJECTS, ...PROJECTS_MORE];

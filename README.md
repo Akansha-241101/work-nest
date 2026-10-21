@@ -14,7 +14,7 @@ A team workspace scaffold for managing projects, tasks, timelines, team members,
 
 ## Technology stack
 
-React, Vite, TypeScript, Tailwind CSS, shadcn/ui, Lucide React, Recharts, `@dnd-kit`, tldraw, date-fns, React Router (`react-router-dom`), and Zustand.
+React, Vite, TypeScript, Tailwind CSS, shadcn/ui, Lucide React, Recharts, tldraw, date-fns, React Router (`react-router-dom`), and Zustand. `@dnd-kit` is planned for the project-workspace Kanban.
 
 ## Setup
 

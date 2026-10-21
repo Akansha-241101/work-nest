@@ -2,7 +2,7 @@
 
 ## Status and decisions
 
-The frontend scaffold is implemented with React, Vite, TypeScript, Tailwind CSS, shadcn/ui configuration, Lucide React, Recharts, `@dnd-kit`, tldraw, date-fns, React Router (`react-router-dom`), and Zustand. The route placeholders and shared app shell are in place. Persistence, authentication, deployment, and API provider remain undecided; do not represent mock/local data as durable shared data.
+The frontend scaffold is implemented with React, Vite, TypeScript, Tailwind CSS, shadcn/ui configuration, Lucide React, Recharts, tldraw, date-fns, React Router (`react-router-dom`), and Zustand. The Projects area currently renders list and board layouts from static mock data with local filters and view switching; drag-and-drop belongs to the future project-workspace Kanban. Persistence, authentication, deployment, and API provider remain undecided; do not represent mock/local data as durable shared data.
 
 ## Proposed structure
 
@@ -41,11 +41,11 @@ Routes render feature pages. Feature components call typed service functions; a 
 
 ## Routing
 
-Use React Router with routes for `/dashboard`, `/projects`, `/projects/:projectId` (the project workspace and Kanban board), `/projects/:projectId/timeline`, `/team`, `/meetings`, and `/settings`. The Kanban board belongs to the Projects area and is not a separate top-level destination. Unknown routes render a not-found view. Project/task/meeting selection should remain linkable where practical.
+Use React Router with flat page modules under `src/pages/` for `/dashboard`, `/projects`, `/team`, `/meetings`, and `/settings`. Project workspace (`/projects/:projectId`) and timeline routes will be added when those screens are built. Unknown routes render a not-found view.
 
 ## Integrations and technical choices
 
-- `@dnd-kit` for keyboard-aware Kanban drag and drop; provide non-drag controls as an alternative.
+- `@dnd-kit` planned for keyboard-aware Kanban drag and drop in the project workspace; provide non-drag controls as an alternative. Not used on the Projects list/board screen.
 - tldraw for meeting-associated drawing. Confirm its current licensing, persistence needs, and collaboration mode before production use.
 - Recharts for dashboard visualizations only where charts add useful information.
 - shadcn/ui components are owned in-repository and styled with Tailwind tokens.

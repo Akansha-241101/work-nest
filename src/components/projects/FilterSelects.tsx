@@ -6,29 +6,32 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/Select";
-import type { ProjectFiltersState } from "./ProjectsFilters";
-
-type FilterSelectsProps = {
-  filters: ProjectFiltersState;
-  onChange: <K extends keyof ProjectFiltersState>(
-    key: K,
-    value: ProjectFiltersState[K],
-  ) => void;
-};
+import type { ProjectFilters } from "@/types/project";
 
 const triggerClass =
   "h-9 shrink-0 rounded-[0.675rem] text-[0.7875rem] [&_svg]:size-[0.9rem]";
+
+type FilterSelectsProps = {
+  filters: ProjectFilters;
+  onChange: (next: ProjectFilters) => void;
+};
 
 export function FilterSelects({ filters, onChange }: FilterSelectsProps) {
   return (
     <div className="flex flex-wrap items-center gap-[0.45rem]">
       <Select
         value={filters.priority}
-        onValueChange={(v) =>
-          onChange("priority", v as ProjectFiltersState["priority"])
+        onValueChange={(value) =>
+          onChange({
+            ...filters,
+            priority: value as ProjectFilters["priority"],
+          })
         }
       >
-        <SelectTrigger className={cnTrigger("w-[135px]")} aria-label="Priority">
+        <SelectTrigger
+          className={`${triggerClass} w-[135px]`}
+          aria-label="Priority"
+        >
           <SelectValue placeholder="All priorities" />
         </SelectTrigger>
         <SelectContent className="rounded-[0.675rem] text-[0.7875rem]">
@@ -38,13 +41,20 @@ export function FilterSelects({ filters, onChange }: FilterSelectsProps) {
           <SelectItem value="low">Low</SelectItem>
         </SelectContent>
       </Select>
+
       <Select
         value={filters.category}
-        onValueChange={(v) =>
-          onChange("category", v as ProjectFiltersState["category"])
+        onValueChange={(value) =>
+          onChange({
+            ...filters,
+            category: value as ProjectFilters["category"],
+          })
         }
       >
-        <SelectTrigger className={cnTrigger("w-[135px]")} aria-label="Category">
+        <SelectTrigger
+          className={`${triggerClass} w-[135px]`}
+          aria-label="Category"
+        >
           <SelectValue placeholder="All categories" />
         </SelectTrigger>
         <SelectContent className="rounded-[0.675rem] text-[0.7875rem]">
@@ -55,12 +65,15 @@ export function FilterSelects({ filters, onChange }: FilterSelectsProps) {
           <SelectItem value="Product">Product</SelectItem>
         </SelectContent>
       </Select>
+
       <Select
         value={filters.due}
-        onValueChange={(v) => onChange("due", v as ProjectFiltersState["due"])}
+        onValueChange={(value) =>
+          onChange({ ...filters, due: value as ProjectFilters["due"] })
+        }
       >
         <SelectTrigger
-          className={cnTrigger("w-[171px] gap-[0.45rem]")}
+          className={`${triggerClass} w-[171px] gap-[0.45rem]`}
           aria-label="Due date range"
         >
           <CalendarDays
@@ -77,8 +90,4 @@ export function FilterSelects({ filters, onChange }: FilterSelectsProps) {
       </Select>
     </div>
   );
-}
-
-function cnTrigger(extra: string) {
-  return `${triggerClass} ${extra}`;
 }

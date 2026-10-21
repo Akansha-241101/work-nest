@@ -1,27 +1,25 @@
 import { Avatar, AvatarFallback } from "@/components/ui/Avatar";
 import { Badge } from "@/components/ui/Badge";
 import { Progress } from "@/components/ui/Progress";
-import { PRIORITY_LABELS, STATUS_LABELS } from "@/data/projectsIndex";
-import { PRIORITY_DOT, STATUS_DOT } from "@/lib/projectStyles";
+import {
+  PRIORITY_DOT,
+  PRIORITY_LABELS,
+  STATUS_DOT,
+  STATUS_LABELS,
+} from "@/data/projectLabels";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/types/project";
-
-type ProjectCardProps = {
-  project: Project;
-  className?: string;
-};
 
 const badgeClass =
   "gap-[0.3375rem] rounded-[0.45rem] px-[0.675rem] py-[0.2rem] text-[0.675rem]";
 
-export function ProjectCard({ project, className }: ProjectCardProps) {
+type ProjectCardProps = {
+  project: Project;
+};
+
+export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article
-      className={cn(
-        "flex flex-col gap-[0.675rem] rounded-[0.9rem] border border-border bg-background p-[1.125rem] bg-card",
-        className,
-      )}
-    >
+    <article className="flex flex-col gap-[0.675rem] rounded-[0.9rem] border border-border bg-card p-[1.125rem]">
       <div className="flex items-start justify-between gap-[0.675rem]">
         <h3 className="min-w-0 text-[0.9rem] font-semibold text-foreground">
           {project.title}

@@ -1,5 +1,3 @@
-import { PageIntro } from "@/components/shared/PageIntro";
-
 type PlaceholderPageProps = {
   title: string;
 };
@@ -7,11 +5,15 @@ type PlaceholderPageProps = {
 export function PlaceholderPage({ title }: PlaceholderPageProps) {
   return (
     <section className="mx-auto max-w-6xl">
-      <PageIntro
-        eyebrow="Work Nest"
-        title={title}
-        description="This V1 screen is ready for implementation."
-      />
+      <p className="mb-[0.45rem] text-[0.7875rem] text-muted-foreground/70">
+        Work Nest
+      </p>
+      <h1 className="font-serif text-[2.025rem] font-semibold tracking-tight uppercase sm:text-[2.7rem]">
+        {title}
+      </h1>
+      <p className="mt-[0.45rem] max-w-[32.4rem] text-[0.7875rem] text-muted-foreground/70">
+        This V1 screen is ready for implementation.
+      </p>
     </section>
   );
 }

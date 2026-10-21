@@ -30,6 +30,5 @@ const PAGE_TITLES: Record<string, string> = {
 };
 
 export function getPageTitle(pathname: string): string {
-  if (pathname.startsWith("/projects/")) return "Project";
   return PAGE_TITLES[pathname] ?? "Work Nest";
 }

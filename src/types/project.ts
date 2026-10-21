@@ -16,9 +16,7 @@ export type Project = {
   title: string;
   description: string;
   status: ProjectStatus;
-  /** High / medium / low urgency badge. */
   priority: ProjectPriority;
-  /** Sort position within a status column (lower = higher in the list). */
   order: number;
   category: ProjectCategory;
   progress: number;
@@ -28,3 +26,11 @@ export type Project = {
 };
 
 export type ProjectsView = "list" | "board";
+
+export type ProjectFilters = {
+  query: string;
+  priority: "all" | ProjectPriority;
+  category: "all" | ProjectCategory;
+  due: "all" | "this-week" | "this-month";
+  status: "all" | ProjectStatus;
+};
