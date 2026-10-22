@@ -8,7 +8,12 @@ type ProjectsViewToggleProps = {
   onChange: (view: ProjectsView) => void;
 };
 
-export function ProjectsViewToggle({ view, onChange }: ProjectsViewToggleProps) {
+export function ProjectsViewToggle({
+  view,
+  onChange,
+}: ProjectsViewToggleProps) {
+  const activeStyles =
+    "bg-secondary text-secondary-foreground hover:bg-secondary hover:text-secondary-foreground bg-secondary text-secondary-foreground hover:bg-secondary hover:text-secondary-foreground";
   return (
     <div
       role="group"
@@ -23,8 +28,7 @@ export function ProjectsViewToggle({ view, onChange }: ProjectsViewToggleProps) 
         onClick={() => onChange("list")}
         className={cn(
           "h-8 gap-[0.3375rem] rounded-[0.45rem] px-[0.675rem] text-[0.7875rem]",
-          view === "list" &&
-            "bg-secondary text-secondary-foreground hover:bg-secondary hover:text-secondary-foreground",
+          view === "list" && activeStyles,
         )}
       >
         <List className="size-[0.9rem]" aria-hidden="true" />
@@ -38,8 +42,7 @@ export function ProjectsViewToggle({ view, onChange }: ProjectsViewToggleProps) 
         onClick={() => onChange("board")}
         className={cn(
           "h-8 gap-[0.3375rem] rounded-[0.45rem] px-[0.675rem] text-[0.7875rem]",
-          view === "board" &&
-            "bg-secondary text-secondary-foreground hover:bg-secondary hover:text-secondary-foreground",
+          view === "board" && activeStyles,
         )}
       >
         <Columns3 className="size-[0.9rem]" aria-hidden="true" />

@@ -63,7 +63,7 @@ export function ProjectsPage() {
         </div>
       </header>
 
-      <section className="space-y-[1.125rem]" aria-label="Projects list">
+      <section className="space-y-4.5" aria-label="Projects list">
         <ProjectsFilters
           filters={filters}
           onChange={setFilters}
