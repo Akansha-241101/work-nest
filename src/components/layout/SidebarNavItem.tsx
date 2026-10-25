@@ -17,9 +17,9 @@ type SidebarNavItemProps = {
 
 /** Same row chrome as AppLogo — icons never recenter on collapse. */
 const navClassName = cn(
-  "flex w-full min-w-0 flex-row flex-nowrap items-center overflow-hidden rounded-lg px-2.5 py-1.5 text-sm text-foreground/55 no-underline",
+  "flex w-full min-w-0 flex-row flex-nowrap items-center overflow-hidden rounded-2xl px-2.5 py-1.5 text-sm text-foreground/55 no-underline",
   "transition-colors duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
-  "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+  "hover:bg-muted hover:text-muted-foreground",
   "aria-[current=page]:bg-sidebar-accent aria-[current=page]:font-medium aria-[current=page]:text-sidebar-accent-foreground",
 );
 

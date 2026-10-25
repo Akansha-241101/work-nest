@@ -8,7 +8,7 @@ type ProjectsListProps = {
 export function ProjectsList({ projects }: ProjectsListProps) {
   if (projects.length === 0) {
     return (
-      <p className="rounded-[0.9rem] border border-dashed border-border px-[1.125rem] py-[2.7rem] text-center text-[0.7875rem] text-muted-foreground">
+      <p className="rounded-[0.9rem] border border-dashed border-border px-px-4.5 py-[2.7rem] text-center text-[0.7875rem] text-muted-foreground">
         No projects match your filters.
       </p>
     );
