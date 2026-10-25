@@ -11,7 +11,7 @@ export function HeaderUser() {
       )}
     >
       <Avatar className="size-8">
-        <AvatarFallback className="text-xs">AS</AvatarFallback>
+        <AvatarFallback className="text-xs">AA</AvatarFallback>
       </Avatar>
       <div className="hidden leading-tight sm:block">
         <p className="font-serif text-sm font-semibold text-foreground">

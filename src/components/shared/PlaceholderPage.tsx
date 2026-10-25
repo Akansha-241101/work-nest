@@ -4,10 +4,7 @@ type PlaceholderPageProps = {
 
 export function PlaceholderPage({ title }: PlaceholderPageProps) {
   return (
-    <section className="mx-auto max-w-6xl">
-      <p className="mb-[0.45rem] text-[0.7875rem] text-muted-foreground/70">
-        Work Nest
-      </p>
+    <section className="mx-auto flex max-w-7xl flex-col">
       <h1 className="font-serif text-[2.025rem] font-semibold tracking-tight uppercase sm:text-[2.7rem]">
         {title}
       </h1>
