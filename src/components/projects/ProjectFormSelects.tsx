@@ -25,9 +25,8 @@ const CATEGORIES: ProjectCategory[] = [
   "Product",
 ];
 const PRIORITIES: ProjectPriority[] = ["high", "medium", "low"];
-const fieldClass = "grid gap-[0.3375rem] text-[0.7875rem]";
-const controlClass = "h-9 rounded-[0.675rem] text-[0.7875rem]";
-const menuClass = "rounded-[0.675rem] text-[0.7875rem]";
+const fieldClass = "grid gap-2 text-sm font-bold";
+const controlClass = "w-full";
 
 type ProjectFormSelectsProps = {
   form: ProjectFormValues;
@@ -36,7 +35,7 @@ type ProjectFormSelectsProps = {
 
 export function ProjectFormSelects({ form, onChange }: ProjectFormSelectsProps) {
   return (
-    <div className="grid gap-[0.9rem] sm:grid-cols-2">
+    <div className="grid gap-4 sm:grid-cols-2">
       <label className={fieldClass}>
         Status
         <Select
@@ -48,7 +47,7 @@ export function ProjectFormSelects({ form, onChange }: ProjectFormSelectsProps) 
           <SelectTrigger className={controlClass} aria-label="Status">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className={menuClass}>
+          <SelectContent>
             {BOARD_STATUSES.map((status) => (
               <SelectItem key={status} value={status}>
                 {STATUS_LABELS[status]}
@@ -69,7 +68,7 @@ export function ProjectFormSelects({ form, onChange }: ProjectFormSelectsProps) 
           <SelectTrigger className={controlClass} aria-label="Priority">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className={menuClass}>
+          <SelectContent>
             {PRIORITIES.map((priority) => (
               <SelectItem key={priority} value={priority}>
                 {PRIORITY_LABELS[priority]}
@@ -90,7 +89,7 @@ export function ProjectFormSelects({ form, onChange }: ProjectFormSelectsProps) 
           <SelectTrigger className={controlClass} aria-label="Category">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className={menuClass}>
+          <SelectContent>
             {CATEGORIES.map((category) => (
               <SelectItem key={category} value={category}>
                 {category}

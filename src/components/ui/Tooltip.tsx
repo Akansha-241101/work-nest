@@ -29,7 +29,7 @@ const TooltipContent = forwardRef<
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        "z-50 origin-[--radix-tooltip-content-transform-origin] overflow-hidden rounded-md bg-primary px-3 py-1.5 text-xs text-primary-foreground",
+        "z-50 origin-[--radix-tooltip-content-transform-origin] overflow-hidden rounded-full bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground",
         className,
       )}
       {...props}

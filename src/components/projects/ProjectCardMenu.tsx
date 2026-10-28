@@ -1,4 +1,4 @@
-import { MoreHorizontalIcon } from "lucide-react";
+import { MoreHorizontalIcon, PencilIcon, Trash2Icon } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import {
   DropdownMenu,
@@ -20,23 +20,18 @@ export function ProjectCardMenu({ onEdit, onDelete }: ProjectCardMenuProps) {
           variant="outline"
           size="icon"
           aria-label="More Options"
-          className="size-8 shrink-0 rounded-[0.45rem]"
+          className="size-9 shrink-0"
         >
           <MoreHorizontalIcon className="size-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="rounded-[0.675rem]">
-        <DropdownMenuItem
-          onClick={onEdit}
-          className="cursor-pointer text-[0.7875rem]"
-        >
+      <DropdownMenuContent align="end" className="min-w-36">
+        <DropdownMenuItem onClick={onEdit}>
+          <PencilIcon aria-hidden="true" />
           Edit
         </DropdownMenuItem>
-        <DropdownMenuItem
-          variant="destructive"
-          onClick={onDelete}
-          className="cursor-pointer text-[0.7875rem]"
-        >
+        <DropdownMenuItem variant="destructive" onClick={onDelete}>
+          <Trash2Icon aria-hidden="true" />
           Delete
         </DropdownMenuItem>
       </DropdownMenuContent>

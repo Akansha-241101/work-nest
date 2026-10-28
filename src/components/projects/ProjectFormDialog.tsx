@@ -76,7 +76,7 @@ export function ProjectFormDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[90vh] overflow-y-auto rounded-[0.9rem] sm:max-w-md">
+      <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
           <DialogTitle>{isEdit ? "Edit project" : "Add project"}</DialogTitle>
           <DialogDescription>
@@ -86,20 +86,20 @@ export function ProjectFormDialog({
           </DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={handleSave} className="grid gap-[0.9rem]">
+        <form onSubmit={handleSave} className="grid gap-4">
           <ProjectFormFields form={form} onChange={setForm} />
-          <DialogFooter className="pt-[0.45rem]">
+          <DialogFooter className="pt-2">
             <Button
               type="button"
               variant="outline"
               onClick={resetAndClose}
-              className="h-9 rounded-[0.675rem] text-[0.7875rem]"
+              className="min-w-24"
             >
               Cancel
             </Button>
             <Button
               type="submit"
-              className="h-9 rounded-[0.675rem] text-[0.7875rem]"
+              className="min-w-24"
             >
               Save
             </Button>

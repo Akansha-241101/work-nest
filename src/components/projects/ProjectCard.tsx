@@ -4,7 +4,10 @@ import { ProjectCardBody } from "@/components/projects/ProjectCardBody";
 import { ProjectCardMenu } from "@/components/projects/ProjectCardMenu";
 import { ProjectFormDialog } from "@/components/projects/ProjectFormDialog";
 import { ConfirmationModal } from "@/components/ui/ConfirmationModal";
+import { CLAY_CARD, claySurface } from "@/constants/clay";
+import { CATEGORY_TONE } from "@/data/projectLabels";
 import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 import { useProjectsStore } from "@/stores/projects-store";
 import type { Project } from "@/types/project";
 
@@ -29,7 +32,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }
 
   return (
-    <article className="flex flex-col gap-[0.675rem] rounded-[0.9rem] border border-border bg-card p-[1.125rem]">
+    <article
+      className={cn(
+        CLAY_CARD,
+        claySurface(CATEGORY_TONE[project.category]),
+        "flex flex-col gap-4 p-5 transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transition-none",
+      )}
+    >
       <ProjectCardBody
         project={project}
         actions={

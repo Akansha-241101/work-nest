@@ -4,9 +4,13 @@
 
 The frontend scaffold is implemented with React, Vite, TypeScript, Tailwind CSS, shadcn/ui configuration, Lucide React, Recharts, tldraw, date-fns, React Router (`react-router-dom`), and Zustand. The Projects area currently renders list and board layouts from static mock data with local filters and view switching; drag-and-drop belongs to the future project-workspace Kanban. Persistence, authentication, deployment, and API provider remain undecided; do not represent mock/local data as durable shared data.
 
+**Theme revamp (docs only so far):** the intended visual system is the playful children-focused look in `public/revamp-design.png`, with token and dashboard guidance in `DESIGN.md`. Static assets live under `public/` (Vite serves them from `/`). Do not treat the current live tokens as final once that revamp is scheduled.
+
 ## Proposed structure
 
 ```text
+public/
+  revamp-design.png Design-reference mock for the playful theme revamp
 src/
   pages/            Route-level screens (dashboard, projects, team, …)
   components/
@@ -20,7 +24,7 @@ src/
   stores/           Zustand client state
   services/         Data-provider boundary (mock initially)
   lib/              Date, formatting, and UI utilities
-  styles/           Tailwind entry and global tokens
+  styles/           Tailwind entry and global tokens (:root / .dark)
 ```
 
 ## Domain model (proposed)

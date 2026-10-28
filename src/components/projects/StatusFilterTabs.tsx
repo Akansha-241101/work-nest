@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/Button";
-import { cn } from "@/lib/utils";
 import type { ProjectStatus } from "@/types/project";
 
 const TABS: { value: "all" | ProjectStatus; label: string }[] = [
@@ -20,7 +19,7 @@ export function StatusFilterTabs({ value, onChange }: StatusFilterTabsProps) {
     <div
       role="tablist"
       aria-label="Filter by status"
-      className="flex flex-wrap gap-[0.45rem]"
+      className="flex flex-wrap gap-2"
     >
       {TABS.map((tab) => {
         const active = value === tab.value;
@@ -29,16 +28,10 @@ export function StatusFilterTabs({ value, onChange }: StatusFilterTabsProps) {
             key={tab.value}
             type="button"
             role="tab"
-            variant="outline"
+            variant={active ? "default" : "outline"}
             size="sm"
             aria-selected={active}
             onClick={() => onChange(tab.value)}
-            className={cn(
-              "h-auto rounded-full px-[0.7875rem] py-[0.3375rem] text-[0.7875rem]",
-              active
-                ? "border-primary/30 bg-accent text-accent-foreground hover:bg-accent hover:text-accent-foreground"
-                : "border-border bg-background text-foreground/60",
-            )}
           >
             {tab.label}
           </Button>

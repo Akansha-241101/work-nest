@@ -1,77 +1,19 @@
-import { PanelLeftClose } from "lucide-react";
-import { useState } from "react";
-import { Button } from "@/components/ui/Button";
-import { cn } from "@/lib/utils";
-import { AppLogo } from "./AppLogo";
 import { NAV_ITEMS } from "./navItems";
-import {
-  SIDEBAR_MOTION,
-  SIDEBAR_WIDTH_COLLAPSED,
-  SIDEBAR_WIDTH_EXPANDED,
-} from "./sidebarMotion";
+import { SidebarBreakCard } from "./SidebarBreakCard";
 import { SidebarNavItem } from "./SidebarNavItem";
+import { SidebarProfile } from "./SidebarProfile";
 
 export function AppSidebar() {
-  const [collapsed, setCollapsed] = useState(false);
-
   return (
-    <aside
-      data-collapsed={collapsed || undefined}
-      className={cn(
-        "hidden h-full shrink-0 flex-col overflow-hidden border-r border-sidebar-border bg-sidebar md:flex",
-        "transition-[width]",
-        SIDEBAR_MOTION,
-        collapsed ? SIDEBAR_WIDTH_COLLAPSED : SIDEBAR_WIDTH_EXPANDED,
-      )}
-    >
-      <AppLogo collapsed={collapsed} />
-      <div className="flex flex-col justify-between p-3.5 h-full">
-        <nav
-          aria-label="Main navigation"
-          className="flex min-h-0 flex-1 flex-col gap-2 overflow-x-hidden overflow-y-auto"
-        >
-          {/* {!collapsed && (
-          <p className="mb-2 px-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/65">
-            Workspace
-          </p>
-        )} */}
-          {NAV_ITEMS.map((item) => (
-            <SidebarNavItem key={item.to} collapsed={collapsed} {...item} />
-          ))}
-        </nav>
-        {/* Sidebar controls */}
-        <div className="mt-4 shrink-0 border-t border-sidebar-border/70 pt-3">
-          <Button
-            type="button"
-            variant="ghost"
-            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-            aria-expanded={!collapsed}
-            onClick={() => setCollapsed((value) => !value)}
-            className={cn(
-              "h-10 w-full rounded-lg text-muted-foreground",
-              "transition-colors duration-200",
-              "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-              collapsed ? "justify-center px-0" : "justify-start gap-3 px-3",
-            )}
-          >
-            <span className="flex size-5 shrink-0 items-center justify-center">
-              <PanelLeftClose
-                aria-hidden="true"
-                className={cn(
-                  "size-[18px]",
-                  "transition-transform duration-200 ease-out",
-                  collapsed && "rotate-180",
-                )}
-              />
-            </span>
-
-            {!collapsed && (
-              <span className="truncate text-sm font-medium">
-                Collapse sidebar
-              </span>
-            )}
-          </Button>
-        </div>
+    <aside className="m-3 mr-0 hidden w-60 shrink-0 flex-col gap-6 overflow-y-auto rounded-[2rem] bg-linear-to-b from-sidebar to-sidebar-accent/70 px-4 pt-6 pb-4 shadow-clay md:flex">
+      <SidebarProfile />
+      <nav aria-label="Main navigation" className="flex flex-col gap-2">
+        {NAV_ITEMS.map((item) => (
+          <SidebarNavItem key={item.to} {...item} />
+        ))}
+      </nav>
+      <div className="mt-auto">
+        <SidebarBreakCard />
       </div>
     </aside>
   );

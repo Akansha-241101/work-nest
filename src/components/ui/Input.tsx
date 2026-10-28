@@ -8,8 +8,8 @@ const Input = forwardRef<HTMLInputElement, ComponentProps<"input">>(
       type={type}
       ref={ref}
       className={cn(
-        "flex h-10 w-full rounded-xl border border-border bg-muted/40 px-3 py-2 text-sm transition-colors",
-        "placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20",
+        "flex h-10 w-full rounded-2xl border-0 bg-muted/80 px-4 py-2 text-sm font-semibold shadow-clay-inset transition-shadow",
+        "placeholder:font-medium placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60",
         "disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}

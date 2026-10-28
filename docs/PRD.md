@@ -4,6 +4,8 @@
 
 A responsive workspace for small teams to plan projects, coordinate work, visualize progress, hold meetings, and collaborate on drawings. V1 is organized around the seven screens selected by the product owner.
 
+**Visual product direction:** a playful, children-focused clay/neumorphic UI (soft pastels, large radii, floating cards, friendly icons). Canonical mock: `public/revamp-design.png`. Design tokens and Overview Dashboard patterns are specified in `DESIGN.md`; implementation of the revamp is tracked in `TASKS.md`.
+
 ## Goals
 
 - Give each team a clear overview of active work, deadlines, and upcoming meetings.

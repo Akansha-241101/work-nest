@@ -2,8 +2,8 @@ import type { ProjectFormValues } from "@/components/projects/project-form";
 import { ProjectFormSelects } from "@/components/projects/ProjectFormSelects";
 import { Input } from "@/components/ui/Input";
 
-const fieldClass = "grid gap-[0.3375rem] text-[0.7875rem]";
-const inputClass = "h-9 rounded-[0.675rem] text-[0.7875rem]";
+const fieldClass = "grid gap-2 text-sm font-bold";
+const inputClass = "w-full";
 
 type ProjectFormFieldsProps = {
   form: ProjectFormValues;
@@ -36,7 +36,7 @@ export function ProjectFormFields({ form, onChange }: ProjectFormFieldsProps) {
 
       <ProjectFormSelects form={form} onChange={onChange} />
 
-      <div className="grid gap-[0.9rem] sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2">
         <label className={fieldClass}>
           Progress (%)
           <Input

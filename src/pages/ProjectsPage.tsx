@@ -5,7 +5,9 @@ import { ProjectsBoard } from "@/components/projects/ProjectsBoard";
 import { ProjectsFilters } from "@/components/projects/ProjectsFilters";
 import { ProjectsList } from "@/components/projects/ProjectsList";
 import { ProjectsViewToggle } from "@/components/projects/ProjectsViewToggle";
+import { PageHero } from "@/components/shared/PageHero";
 import { Button } from "@/components/ui/Button";
+import { NAV_ICONS } from "@/constants/assets";
 import { useProjectsStore } from "@/stores/projects-store";
 import type { ProjectFilters, ProjectsView } from "@/types/project";
 
@@ -50,33 +52,23 @@ export function ProjectsPage() {
     .sort((a, b) => a.order - b.order);
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col gap-[1.8rem]">
-      <header className="flex flex-col gap-[0.9rem] sm:flex-row sm:items-start sm:justify-between">
-        <div className="min-w-0">
-          <h1 className="font-serif text-[2.025rem] font-semibold tracking-tight uppercase sm:text-[2.7rem]">
-            Projects
-          </h1>
+    <div className="mx-auto flex max-w-7xl flex-col gap-6">
+      <PageHero
+        icon={NAV_ICONS.folder}
+        title="Projects"
+        description="Manage and track all your projects in one place."
+        actions={
+          <>
+            <ProjectsViewToggle view={view} onChange={setView} />
+            <Button type="button" onClick={() => setAddOpen(true)}>
+              <Plus className="size-4" aria-hidden="true" />
+              Add project
+            </Button>
+          </>
+        }
+      />
 
-          <p className="mt-[0.45rem] max-w-[32.4rem] text-[0.7875rem] text-muted-foreground/70">
-            Manage and track all your projects in one place.
-          </p>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-[0.45rem] sm:pt-[0.225rem]">
-          <ProjectsViewToggle view={view} onChange={setView} />
-
-          <Button
-            type="button"
-            onClick={() => setAddOpen(true)}
-            className="h-9 gap-[0.45rem] rounded-[0.675rem] bg-secondary px-[0.9rem] text-[0.7875rem] text-secondary-foreground hover:bg-secondary/90"
-          >
-            <Plus className="size-[0.9rem]" aria-hidden="true" />
-            Add project
-          </Button>
-        </div>
-      </header>
-
-      <section className="space-y-4.5" aria-label="Projects list">
+      <section className="space-y-6" aria-label="Projects list">
         <ProjectsFilters
           filters={filters}
           onChange={setFilters}

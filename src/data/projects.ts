@@ -1,106 +1,95 @@
 import type { Project } from "@/types/project";
-import { PROJECTS_MORE } from "./projectsMore";
 
-export const PROJECTS: Project[] = [
+/** Lean seed set — one row per status/category pair for UI + future DB. */
+export const ALL_PROJECTS: Project[] = [
   {
     id: "1",
     title: "Website redesign",
-    description:
-      "Refresh marketing site layout, typography, and conversion paths for Q4 launch.",
+    description: "Refresh marketing site layout and conversion paths.",
     status: "in-progress",
     priority: "high",
     order: 0,
     category: "Design",
     progress: 75,
     members: [
-      { id: "m1", initials: "MI" },
-      { id: "m2", initials: "AA" },
+      { id: "m1", initials: "EM" },
+      { id: "m2", initials: "SC" },
     ],
-    memberCount: 6,
+    memberCount: 4,
     dueLabel: "Due 12 Nov",
   },
   {
     id: "2",
     title: "Mobile app MVP",
-    description:
-      "Ship core flows for onboarding, projects list, and task updates on iOS.",
+    description: "Ship onboarding, projects list, and task updates.",
     status: "todo",
     priority: "high",
     order: 0,
     category: "Development",
     progress: 20,
     members: [
-      { id: "m3", initials: "RK" },
-      { id: "m4", initials: "JS" },
+      { id: "m3", initials: "AR" },
+      { id: "m4", initials: "JL" },
     ],
-    memberCount: 8,
+    memberCount: 5,
     dueLabel: "Due 28 Nov",
   },
   {
     id: "3",
     title: "Brand campaign",
-    description:
-      "Plan creative assets and channel mix for the winter product campaign.",
+    description: "Plan creative assets for the winter launch.",
     status: "in-review",
     priority: "medium",
     order: 0,
     category: "Marketing",
     progress: 60,
-    members: [
-      { id: "m5", initials: "LP" },
-      { id: "m2", initials: "AA" },
-    ],
-    memberCount: 4,
-    dueLabel: "Due 05 Dec",
+    members: [{ id: "m5", initials: "MP" }],
+    memberCount: 3,
+    dueLabel: "Due 5 Nov",
   },
   {
     id: "4",
     title: "API documentation",
-    description:
-      "Document public endpoints, auth, and examples for partner integrations.",
+    description: "Document public endpoints and auth examples.",
     status: "done",
     priority: "low",
     order: 0,
     category: "Product",
     progress: 100,
-    members: [{ id: "m3", initials: "RK" }],
-    memberCount: 3,
-    dueLabel: "Due 01 Nov",
+    members: [
+      { id: "m3", initials: "AR" },
+      { id: "m1", initials: "EM" },
+    ],
+    memberCount: 2,
+    dueLabel: "Done 20 Oct",
   },
   {
     id: "5",
     title: "Design system kit",
-    description:
-      "Expand tokens, components, and usage guidelines for cross-team consistency.",
+    description: "Expand tokens and component guidelines.",
     status: "in-progress",
     priority: "medium",
     order: 1,
     category: "Design",
     progress: 45,
     members: [
-      { id: "m1", initials: "MI" },
-      { id: "m5", initials: "LP" },
+      { id: "m2", initials: "SC" },
+      { id: "m5", initials: "MP" },
     ],
-    memberCount: 5,
+    memberCount: 3,
     dueLabel: "Due 18 Nov",
   },
   {
     id: "6",
-    title: "Billing redesign",
-    description:
-      "Simplify plan selection, invoices, and upgrade messaging in settings.",
+    title: "Search improvements",
+    description: "Tune ranking for projects and recent work.",
     status: "todo",
-    priority: "high",
+    priority: "low",
     order: 1,
-    category: "Product",
-    progress: 10,
-    members: [
-      { id: "m4", initials: "JS" },
-      { id: "m2", initials: "AA" },
-    ],
-    memberCount: 5,
-    dueLabel: "Due 22 Nov",
+    category: "Development",
+    progress: 5,
+    members: [{ id: "m4", initials: "JL" }],
+    memberCount: 2,
+    dueLabel: "Due 30 Nov",
   },
 ];
-
-export const ALL_PROJECTS = [...PROJECTS, ...PROJECTS_MORE];

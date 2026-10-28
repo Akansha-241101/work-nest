@@ -1,4 +1,5 @@
-import { Avatar, AvatarFallback } from "@/components/ui/Avatar";
+import { ILLUSTRATIONS } from "@/constants/assets";
+import { DASHBOARD_USER_NAME } from "@/data/dashboard";
 import { cn } from "@/lib/utils";
 import { HEADER_CONTROL } from "./headerChrome";
 
@@ -6,18 +7,23 @@ export function HeaderUser() {
   return (
     <div
       className={cn(
-        "flex items-center gap-2.5 py-0.5 pr-3 pl-1",
+        "flex items-center gap-2.5 py-1 pr-4 pl-1",
         HEADER_CONTROL,
       )}
     >
-      <Avatar className="size-8">
-        <AvatarFallback className="text-xs">AA</AvatarFallback>
-      </Avatar>
+      <img
+        src={ILLUSTRATIONS.avatarGirl}
+        alt=""
+        draggable={false}
+        className="size-8 rounded-full bg-clay-yellow object-cover object-top"
+      />
       <div className="hidden leading-tight sm:block">
-        <p className="font-serif text-sm font-semibold text-foreground">
-          Akansha A.
+        <p className="text-sm font-extrabold text-foreground">
+          {DASHBOARD_USER_NAME}
         </p>
-        <p className="font-serif text-[10px] text-foreground/50">Team manager</p>
+        <p className="text-[0.7rem] font-semibold text-foreground/55">
+          Little explorer
+        </p>
       </div>
     </div>
   );

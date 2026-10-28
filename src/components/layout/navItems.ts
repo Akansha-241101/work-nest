@@ -1,31 +1,28 @@
-import {
-  CalendarDays,
-  FolderKanban,
-  LayoutDashboard,
-  Settings,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
+import { NAV_ICONS } from "@/constants/assets";
 
 export type NavItem = {
   to: string;
   label: string;
-  icon: LucideIcon;
+  icon: string;
 };
 
 export const NAV_ITEMS: NavItem[] = [
-  { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/projects", label: "Projects", icon: FolderKanban },
-  { to: "/team", label: "Team", icon: Users },
-  { to: "/meetings", label: "Meetings", icon: CalendarDays },
-  { to: "/settings", label: "Settings", icon: Settings },
+  { to: "/dashboard", label: "Dashboard", icon: NAV_ICONS.home },
+  { to: "/tasks", label: "Tasks", icon: NAV_ICONS.tasks },
+  { to: "/meetings", label: "Calendar", icon: NAV_ICONS.calendar },
+  { to: "/projects", label: "Projects", icon: NAV_ICONS.folder },
+  { to: "/messages", label: "Messages", icon: NAV_ICONS.chat },
+  { to: "/settings", label: "Settings", icon: NAV_ICONS.settings },
 ];
 
 const PAGE_TITLES: Record<string, string> = {
-  "/dashboard": "Overview",
+  "/dashboard": "Dashboard",
+  "/tasks": "Tasks",
+  "/meetings": "Calendar",
   "/projects": "Projects",
+  "/analytics": "Analytics",
+  "/messages": "Messages",
   "/team": "Team",
-  "/meetings": "Meetings",
   "/settings": "Settings",
 };
 

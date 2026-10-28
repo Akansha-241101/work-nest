@@ -1,4 +1,9 @@
-import type { ProjectPriority, ProjectStatus } from "@/types/project";
+import type { ClayTone } from "@/types/clay";
+import type {
+  ProjectCategory,
+  ProjectPriority,
+  ProjectStatus,
+} from "@/types/project";
 
 export const BOARD_STATUSES: ProjectStatus[] = [
   "todo",
@@ -20,15 +25,22 @@ export const PRIORITY_LABELS: Record<ProjectPriority, string> = {
   low: "Low",
 };
 
-export const STATUS_DOT: Record<ProjectStatus, string> = {
-  todo: "bg-foreground/70",
-  "in-progress": "bg-primary",
-  "in-review": "bg-chart-3",
-  done: "bg-chart-2",
+export const STATUS_TONE: Record<ProjectStatus, ClayTone> = {
+  todo: "lavender",
+  "in-progress": "blue",
+  "in-review": "yellow",
+  done: "mint",
 };
 
-export const PRIORITY_DOT: Record<ProjectPriority, string> = {
-  high: "bg-destructive",
-  medium: "bg-chart-3",
-  low: "bg-chart-2",
+export const PRIORITY_TONE: Record<ProjectPriority, ClayTone> = {
+  high: "pink",
+  medium: "yellow",
+  low: "mint",
+};
+
+export const CATEGORY_TONE: Record<ProjectCategory, ClayTone> = {
+  Design: "lavender",
+  Development: "blue",
+  Marketing: "pink",
+  Product: "mint",
 };

@@ -21,7 +21,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className={cn("size-9 hover:bg-accent", HEADER_CONTROL)}
+      className={cn("size-10 hover:bg-card", HEADER_CONTROL)}
       onClick={() => setIsDark((value) => !value)}
     >
       {isDark ? (

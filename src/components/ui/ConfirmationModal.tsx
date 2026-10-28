@@ -27,17 +27,17 @@ export function ConfirmationModal({
 }: ConfirmationModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="rounded-[0.9rem] sm:max-w-md" showCloseButton>
+      <DialogContent className="sm:max-w-md" showCloseButton>
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
-        <DialogFooter className="pt-[0.45rem]">
+        <DialogFooter className="pt-2">
           <Button
             type="button"
             variant="outline"
             onClick={() => onOpenChange(false)}
-            className="h-9 rounded-[0.675rem] text-[0.7875rem]"
+            className="min-w-24"
           >
             Cancel
           </Button>
@@ -48,7 +48,7 @@ export function ConfirmationModal({
               onConfirm();
               onOpenChange(false);
             }}
-            className="h-9 rounded-[0.675rem] text-[0.7875rem]"
+            className="min-w-24"
           >
             {confirmLabel}
           </Button>

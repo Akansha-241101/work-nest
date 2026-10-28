@@ -17,9 +17,10 @@ Short, binding rules for this project. Read `PRD.md`, `ARCHITECTURE.md`, `DESIGN
 
 ## UI and accessibility
 
-- Follow `DESIGN.md`; use shared tokens and shadcn/ui primitives consistently.
+- Follow `DESIGN.md` (playful children-focused theme; reference `public/revamp-design.png`); use shared tokens and shadcn/ui primitives consistently.
 - Build responsive interfaces and include meaningful loading, empty, error, success, and disabled states.
 - Use semantic HTML, labels, keyboard support, visible focus, and reduced-motion preferences.
+- Keep pastel surfaces readable; do not sacrifice contrast for decoration.
 - Interactive controls must do what their labels promise. Drag-and-drop needs an accessible alternative.
 
 ## React and TypeScript

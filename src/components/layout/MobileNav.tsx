@@ -1,8 +1,8 @@
 import { Menu } from "lucide-react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { AppLogo } from "@/components/layout/AppLogo";
 import { NAV_ITEMS } from "@/components/layout/navItems";
+import { SidebarNavItem } from "@/components/layout/SidebarNavItem";
+import { SidebarProfile } from "@/components/layout/SidebarProfile";
 import { Button } from "@/components/ui/Button";
 import {
   Sheet,
@@ -11,7 +11,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/Sheet";
-import { cn } from "@/lib/utils";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -24,31 +23,26 @@ export function MobileNav() {
           variant="ghost"
           size="icon"
           aria-label="Open navigation menu"
-          className="size-9 md:hidden"
+          className="size-10 shrink-0 rounded-full bg-card shadow-clay-sm md:hidden"
         >
           <Menu className="size-5" aria-hidden="true" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-[18rem] gap-6 bg-sidebar p-4">
+      <SheetContent
+        side="left"
+        className="w-[18rem] gap-6 overflow-y-auto bg-linear-to-b from-sidebar to-sidebar-accent/70 p-4 pt-8"
+      >
         <SheetHeader className="sr-only">
           <SheetTitle>Main navigation</SheetTitle>
         </SheetHeader>
-        <AppLogo />
-        <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
-          {NAV_ITEMS.map(({ to, label, icon: Icon }) => (
-            <NavLink
-              key={to}
-              to={to}
-              onClick={() => setOpen(false)}
-              className={cn(
-                "flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-foreground/55 no-underline",
-                "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-                "aria-[current=page]:bg-sidebar-accent aria-[current=page]:font-medium aria-[current=page]:text-sidebar-accent-foreground",
-              )}
-            >
-              <Icon aria-hidden="true" className="size-[18px] shrink-0" />
-              {label}
-            </NavLink>
+        <SidebarProfile />
+        <nav aria-label="Mobile navigation" className="flex flex-col gap-1.5">
+          {NAV_ITEMS.map((item) => (
+            <SidebarNavItem
+              key={item.to}
+              {...item}
+              onNavigate={() => setOpen(false)}
+            />
           ))}
         </nav>
       </SheetContent>

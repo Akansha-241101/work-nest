@@ -30,6 +30,6 @@ export const useProjectsStore = create<ProjectsState>()(
           ),
         })),
     }),
-    { name: "work-nest-projects" },
+    { name: "work-nest-projects-v2" },
   ),
 );

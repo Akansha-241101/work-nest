@@ -9,7 +9,7 @@ import {
 import type { ProjectFilters } from "@/types/project";
 
 const triggerClass =
-  "h-9 shrink-0 rounded-[0.675rem] text-[0.7875rem] [&_svg]:size-[0.9rem]";
+  "shrink-0 [&_svg]:size-4";
 
 type FilterSelectsProps = {
   filters: ProjectFilters;
@@ -18,7 +18,7 @@ type FilterSelectsProps = {
 
 export function FilterSelects({ filters, onChange }: FilterSelectsProps) {
   return (
-    <div className="flex flex-wrap items-center gap-[0.45rem]">
+    <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center">
       <Select
         value={filters.priority}
         onValueChange={(value) =>
@@ -29,12 +29,12 @@ export function FilterSelects({ filters, onChange }: FilterSelectsProps) {
         }
       >
         <SelectTrigger
-          className={`${triggerClass} w-[135px]`}
+          className={`${triggerClass} w-full sm:w-40`}
           aria-label="Priority"
         >
           <SelectValue placeholder="All priorities" />
         </SelectTrigger>
-        <SelectContent className="rounded-[0.675rem] text-[0.7875rem]">
+        <SelectContent>
           <SelectItem value="all">All priorities</SelectItem>
           <SelectItem value="high">High</SelectItem>
           <SelectItem value="medium">Medium</SelectItem>
@@ -52,12 +52,12 @@ export function FilterSelects({ filters, onChange }: FilterSelectsProps) {
         }
       >
         <SelectTrigger
-          className={`${triggerClass} w-[135px]`}
+          className={`${triggerClass} w-full sm:w-40`}
           aria-label="Category"
         >
           <SelectValue placeholder="All categories" />
         </SelectTrigger>
-        <SelectContent className="rounded-[0.675rem] text-[0.7875rem]">
+        <SelectContent>
           <SelectItem value="all">All categories</SelectItem>
           <SelectItem value="Design">Design</SelectItem>
           <SelectItem value="Development">Development</SelectItem>
@@ -73,16 +73,16 @@ export function FilterSelects({ filters, onChange }: FilterSelectsProps) {
         }
       >
         <SelectTrigger
-          className={`${triggerClass} w-[171px] gap-[0.45rem]`}
+          className={`${triggerClass} col-span-2 w-full gap-2 sm:w-48`}
           aria-label="Due date range"
         >
           <CalendarDays
-            className="size-[0.9rem] shrink-0 opacity-50"
+            className="shrink-0 opacity-60"
             aria-hidden="true"
           />
           <SelectValue placeholder="Due date range" />
         </SelectTrigger>
-        <SelectContent className="rounded-[0.675rem] text-[0.7875rem]">
+        <SelectContent>
           <SelectItem value="all">Due date range</SelectItem>
           <SelectItem value="this-week">This week</SelectItem>
           <SelectItem value="this-month">This month</SelectItem>
