@@ -16,7 +16,7 @@ import type { Project } from "@/types/project";
 
 type ProjectCardBodyProps = {
   project: Project;
-  actions: ReactNode;
+  actions?: ReactNode;
 };
 
 export function ProjectCardBody({ project, actions }: ProjectCardBodyProps) {

@@ -1,13 +1,12 @@
-import { Plus } from "lucide-react";
-import { useState } from "react";
-import { ProjectFormDialog } from "@/components/projects/ProjectFormDialog";
+import { LoaderCircle, RefreshCw } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 import { ProjectsBoard } from "@/components/projects/ProjectsBoard";
 import { ProjectsFilters } from "@/components/projects/ProjectsFilters";
 import { ProjectsList } from "@/components/projects/ProjectsList";
 import { ProjectsViewToggle } from "@/components/projects/ProjectsViewToggle";
 import { PageHero } from "@/components/shared/PageHero";
-import { Button } from "@/components/ui/Button";
 import { NAV_ICONS } from "@/constants/assets";
+import { fetchNeonProjects } from "@/lib/neon-projects";
 import { useProjectsStore } from "@/stores/projects-store";
 import type { ProjectFilters, ProjectsView } from "@/types/project";
 
@@ -21,9 +20,29 @@ const INITIAL_FILTERS: ProjectFilters = {
 
 export function ProjectsPage() {
   const projects = useProjectsStore((s) => s.projects);
+  const setProjects = useProjectsStore((s) => s.setProjects);
   const [view, setView] = useState<ProjectsView>("list");
   const [filters, setFilters] = useState(INITIAL_FILTERS);
-  const [addOpen, setAddOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+
+  const loadProjects = useCallback(async () => {
+    setLoading(true);
+    setLoadError(null);
+    try {
+      setProjects(await fetchNeonProjects());
+    } catch (error) {
+      setLoadError(
+        error instanceof Error ? error.message : "Unable to load projects from Neon.",
+      );
+    } finally {
+      setLoading(false);
+    }
+  }, [setProjects]);
+
+  useEffect(() => {
+    void loadProjects();
+  }, [loadProjects]);
 
   const query = filters.query.trim().toLowerCase();
 
@@ -56,16 +75,8 @@ export function ProjectsPage() {
       <PageHero
         icon={NAV_ICONS.folder}
         title="Projects"
-        description="Manage and track all your projects in one place."
-        actions={
-          <>
-            <ProjectsViewToggle view={view} onChange={setView} />
-            <Button type="button" onClick={() => setAddOpen(true)}>
-              <Plus className="size-4" aria-hidden="true" />
-              Add project
-            </Button>
-          </>
-        }
+        description="Projects loaded directly from your Neon database."
+        actions={<ProjectsViewToggle view={view} onChange={setView} />}
       />
 
       <section className="space-y-6" aria-label="Projects list">
@@ -77,14 +88,31 @@ export function ProjectsPage() {
           onReset={() => setFilters(INITIAL_FILTERS)}
         />
 
-        {view === "list" ? (
+        {loadError ? (
+          <div role="alert" className="rounded-3xl bg-card p-6 text-center shadow-clay-sm">
+            <p className="font-bold">Could not load projects from Neon</p>
+            <p className="mt-2 text-sm text-muted-foreground">{loadError}</p>
+            <button
+              type="button"
+              onClick={() => void loadProjects()}
+              className="mt-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold text-primary hover:bg-primary/10"
+            >
+              <RefreshCw className="size-4" aria-hidden="true" />
+              Try again
+            </button>
+          </div>
+        ) : loading ? (
+          <div className="flex items-center justify-center gap-2 py-12 text-sm text-muted-foreground" role="status">
+            <LoaderCircle className="size-5 animate-spin" aria-hidden="true" />
+            Loading projects from Neon…
+          </div>
+        ) : view === "list" ? (
           <ProjectsList projects={filteredProjects} />
         ) : (
           <ProjectsBoard projects={filteredProjects} />
         )}
       </section>
 
-      <ProjectFormDialog open={addOpen} onOpenChange={setAddOpen} />
     </div>
   );
 }

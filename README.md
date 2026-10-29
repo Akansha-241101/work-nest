@@ -25,13 +25,11 @@ bun install
 bun run dev
 ```
 
-## Environment variables
+## Neon database
 
-No environment variables are currently required. Add an `.env.example` when an actual provider is selected. Vite variables prefixed with `VITE_` are included in the client bundle; never put secrets in them.
+The Projects page reads `public.projects` directly from Neon with Neon's serverless driver. Create a dedicated read-only database role using [`database/grant_project_read_access.sql`](database/grant_project_read_access.sql), then copy `.env.example` to `.env.local` and set `VITE_NEON_DATABASE_URL` to that role's connection string. Restart the Vite dev server after changing the environment file.
 
-## Database configuration
-
-No database or persistence provider is selected. Early UI work may use a mock service provider and sample data. Choose a database, authentication model, migrations, and team access controls before persisting real user data. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) and [`docs/SECURITY.md`](docs/SECURITY.md).
+Vite includes `VITE_` variables in browser code. Use only the dedicated `worknest_reader` role, which is granted `SELECT` on `public.projects`; never use an owner/admin connection string. The Projects page is read-only. The existing API server is not needed for loading projects.
 
 ## Development commands
 
